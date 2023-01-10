@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" >
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>TODO APP</title>
+</head>
+
+<body>
+        <div class="container">
+            <h1>TO DO APP</h1>
+            <input type="text" name="todo" id="input" placeholder="Press ENTER to ADD task">
+            <ul></ul>
+        </div>
+   
+        <script type="text/javascript">
+            $(document).ready(function(){
+                    $('#input').change(function(){
+                        var input = $(this).val();
+                        $('ul').append('<li>' + input + '<i class="fas fa-check"></i> <i class="fas fa-trash"></i> </li>')
+                        $(this).val('');
+                    });
+                    $('ul').on('click','.fa-trash',function(){
+                        $(this).parent('li').fadeOut(200); 
+                    });
+                    $('ul').on('click','.fa-check',function(){
+                        $(this).parent('li').toggleClass('checked'); 
+                    })
+            })
+        </script>
+</body>
+</html>
